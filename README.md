@@ -1,6 +1,6 @@
-# classic_mac_calculator
+# Classic Mac Calculator
 
-A new Flutter project.
+Classic Mac Calculator is use flutter to build classic Mac Plus like calculator.
 
 ## Getting Started
 
