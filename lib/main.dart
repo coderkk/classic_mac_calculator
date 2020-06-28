@@ -203,7 +203,7 @@ class _CalcAppState extends State<CalcApp> {
                                   onPressed: () => userPressButton('3'),
                                 ),
                                 NumPadButton(
-                                  caption: '=',
+                                  caption: "=",
                                   onPressed: () => userPressButton('='),
                                 ),
                               ],
@@ -217,7 +217,7 @@ class _CalcAppState extends State<CalcApp> {
                                 Flexible(
                                     flex: 2,
                                     child: NumPadButton(
-                                      caption: '0',
+                                      caption: '  0  ',
                                       onPressed: () => userPressButton('0'),
                                     )),
                                 Flexible(
@@ -226,6 +226,7 @@ class _CalcAppState extends State<CalcApp> {
                                       caption: '.',
                                       onPressed: () => userPressButton('.'),
                                     )),
+                                Spacer(flex: 1),
                               ],
                             ),
                           ],
@@ -261,6 +262,16 @@ class Calc {
         displayNumber = displayNumber + num;
       }
     }
+  }
+
+  String trimZero(String result) {
+    print("trimZero: $result");
+    double doubleResult = double.tryParse(result);
+    int intResult = doubleResult.toInt();
+
+    double different = doubleResult - intResult.toDouble();
+
+    return (different == 0) ? intResult.toString() : doubleResult.toString();
   }
 
   void compute(String userInput) {
@@ -309,6 +320,7 @@ class Calc {
 
       _operator = userInput;
       memoryNumber = result;
+      displayNumber = trimZero(displayNumber);
     } else if (userInput == "C") {
       displayNumber = "0";
       _operator = "";
