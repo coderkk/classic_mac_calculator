@@ -328,11 +328,6 @@ class Calc {
     } else {
       numberInput(userInput);
     }
-
-    print("userInput: $userInput");
-    print("_operator: $_operator");
-    print("memoryNumber: $memoryNumber");
-    print("displayNumber: $displayNumber");
   }
 }
 
@@ -356,20 +351,17 @@ class _NumPadButtonState extends State<NumPadButton> {
         setState(() {
           _userPressed = true;
         });
-        print("onTapDown");
       },
       onTapUp: (events) {
         setState(() {
           _userPressed = false;
         });
         widget.onPressed();
-        print("onTapUp");
       },
       onTapCancel: () {
         setState(() {
           _userPressed = false;
         });
-        print("onTapUp");
       },
       child: Container(
         padding: const EdgeInsets.all(20.0),
